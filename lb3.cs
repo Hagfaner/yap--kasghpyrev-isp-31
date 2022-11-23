@@ -22,7 +22,7 @@ namespace ConsoleApp1
                 min = 5 * (n+1);
                 if (min >= 60) { h++; min %= 60; }
                 h += n;
-                if (h >= 24) { h -= 24; }
+                while (h>=12) {h%=12;} 
                 Console.WriteLine($"{h}:{min}");
             }
             
