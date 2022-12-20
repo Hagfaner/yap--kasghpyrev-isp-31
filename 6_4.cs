@@ -1,7 +1,5 @@
-using Microsoft.CSharp.RuntimeBinder;
-using System.Runtime.CompilerServices;
-money a = new money("-10","р.","90","коп.");
-money b = new money("10", "р.", "15", "коп.");
+money a = new money("10","р.","90","коп.");
+money b = new money("50", "р.", "15", "коп.");
 money c = new money();
 money d = new money();
 c = Sum(a, b);
@@ -58,7 +56,11 @@ class money
     {
         cops += rub * com * 100 + cops*com;
         cops=Math.Round(cops);
-        if (cops >= 100) { rub++;cops -= 100; }
+        while (cops >= 100)
+        {
+            rub += 1;
+            cops -= 100;
+        }
         if (rub == 0) { Console.WriteLine($"{cops} коп."); }
         else Console.WriteLine($"{rub} р. {cops} коп.");
 
